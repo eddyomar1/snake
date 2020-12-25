@@ -29,7 +29,7 @@ button{font-size: 30px; padding: 20px 20px 20px 20px; margin: 20px 20px 20px 20p
 </div>
 
 <script>
-    var msc = 1;
+    var msc = 2;
 
 function init(){
     var ctx = document.getElementById('can').getContext('2d');
@@ -179,7 +179,7 @@ if(event.keyCode === 80){
     var ri = document.getElementById('right');
     var dw = document.getElementById('down');
 
-    up.addEventListener('mousedown' || 'touchend', function(event){
+    up.addEventListener('touchend', function(event){
 
 if(dy != 10){
     dx = 0;
@@ -187,21 +187,21 @@ if(dy != 10){
     }
 });
 
-dw.addEventListener('mousedown' || 'touchend', function(event){
+dw.addEventListener('touchend', function(event){
 if(dy != -10){
     dx = 0;
     dy = 10;
     }
 });
 
-le.addEventListener('mousedown' || 'touchend', function(event){
+le.addEventListener('touchend', function(event){
 if(dx != 10){
     dx = -10;
     dy = 0;
     }
 });
 
-ri.addEventListener('mousedown' || 'touchend', function(event){
+ri.addEventListener('touchend', function(event){
 if(dx != -10){
     dx = 10;
     dy = 0;
