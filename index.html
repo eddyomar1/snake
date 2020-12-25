@@ -29,7 +29,7 @@ button{font-size: 30px; padding: 20px 20px 20px 20px; margin: 20px 20px 20px 20p
 </div>
 
 <script>
-    var msc = 0;
+    var msc = 1;
 
 function init(){
     var ctx = document.getElementById('can').getContext('2d');
@@ -48,7 +48,7 @@ function init(){
 
 var draw = setInterval(() => {
 
-    if (has_game_ended()){ clearInterval(draw); setTimeout(() => {
+    if (choque()){ clearInterval(draw); setTimeout(() => {
        init(); 
     }, 5000);}
     
@@ -83,7 +83,7 @@ function ms(){
     }
 
 
-    function has_game_ended(){
+    function choque(){
 
   for (let i = 4; i < snake.length; i++){
           
@@ -114,7 +114,7 @@ xc = Math.floor(Math.random() * 40) + "0";
 
 function comida(){
 
-if(snake[0].x == xc && snake[0].y == yc){console.log(xc+" "+yc); crecer(); poco(); sc++}
+if(snake[0].x == xc && snake[0].y == yc){crecer(); poco(); sc++}
 
     ctx.fillStyle = 'red';  
     ctx.strokestyle = 'darkgreen';
@@ -172,12 +172,14 @@ if(event.keyCode === 80){
 
     });
 
+    //movil
+
     var up = document.getElementById('up');
     var le = document.getElementById('left');
     var ri = document.getElementById('right');
     var dw = document.getElementById('down');
 
-    up.addEventListener('mousedown', function(event){
+    up.addEventListener('mousedown' || 'touchend', function(event){
 
 if(dy != 10){
     dx = 0;
@@ -185,21 +187,21 @@ if(dy != 10){
     }
 });
 
-dw.addEventListener('mousedown', function(event){
+dw.addEventListener('mousedown' || 'touchend', function(event){
 if(dy != -10){
     dx = 0;
     dy = 10;
     }
 });
 
-le.addEventListener('mousedown', function(event){
+le.addEventListener('mousedown' || 'touchend', function(event){
 if(dx != 10){
     dx = -10;
     dy = 0;
     }
 });
 
-ri.addEventListener('mousedown', function(event){
+ri.addEventListener('mousedown' || 'touchend', function(event){
 if(dx != -10){
     dx = 10;
     dy = 0;
